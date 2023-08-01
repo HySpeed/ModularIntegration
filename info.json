@@ -1,0 +1,14 @@
+{
+  "name": "ModularIntegration",
+  "version": "0.2.0",
+  "title": "Modular Integration",
+  "author": "hyspeed",
+  "contact": "hyspeed_games@yahoo.com",
+  "homepage": "https://github.com/hyspeed/ModularIntegration",
+  "description": "A Factorio mod to allow interaction with the game from viewers.",
+  "factorio_version": "1.1",
+  "dependencies": [
+    "base >= 1.1.0", 
+    "flib >= 0.9.2"
+  ]
+}
