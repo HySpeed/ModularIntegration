@@ -15,9 +15,9 @@ local TeleportDistance       = require( "modules.teleport_distance" )
 -- =============================================================================
 
 local taskFunctions = {
-  dumpInventory    = DumpInventory.choose,
-  fillInventory    = FillInventory.choose,
-  teleportDistance = TeleportDistance.choose
+  dump_inventory    = DumpInventory.choose,
+  fill_inventory    = FillInventory.choose,
+  teleport_distance = TeleportDistance.choose
 }
 
 -- -----------------------------------------------------------------------------
