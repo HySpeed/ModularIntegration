@@ -45,7 +45,7 @@ function Utils.isInVehicle( task, fail_message )
   end
 
   if player.vehicle ~= nil then
-    game.print( { "", {"xti-text.name"}, fail_message, task.player.name } )
+    game.print( { "", {"mi-text.name"}, fail_message, task.player.name } )
     Utils.showTextOnPlayer( task.player, fail_message, Constants.OFFSET.BELOW, Constants.COLOR.ERROR )
     return true
   end
