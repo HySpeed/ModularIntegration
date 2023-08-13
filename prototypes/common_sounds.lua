@@ -24,6 +24,18 @@ local fill_inventory_full = {
   }
 }
 
+local spawn_turret_thunk = {
+  type = "sound",
+  name = "spawn-turret-thunk",
+  variations = 
+  {
+    {
+      filename = "__ModularIntegration__/sounds/Spawn_Turret-Thunk.ogg",
+      volume = 1.00
+    }
+  }
+}
+
 local teleport_distance_wave = {
   type = "sound",
   name = "teleport-distance-wave",
@@ -40,5 +52,6 @@ local teleport_distance_wave = {
 data:extend({
   dump_inventory_whistle,
   fill_inventory_full,
+  spawn_turret_thunk,
   teleport_distance_wave
 })

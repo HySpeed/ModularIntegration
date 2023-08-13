@@ -46,6 +46,28 @@ end
 
 -- -----------------------------------------------------------------------------
 
+-- Ensure the ammo type is supported
+function Validators.validateAmmoType( ammo_type )
+  if not Constants.TURRETS.AMMO[ammo_type] then
+    game.print( { "", {"mi-text.name"}, {"mi-error.ammo_type_not_valid", ammo_type} }, Constants.COLOR.ERROR )
+    return false
+  end
+  return true
+end
+
+-- -----------------------------------------------------------------------------
+
+-- Ensure the distance is supported
+function Validators.validateDistance( distance )
+  if not Constants.DISTANCE[distance] then
+    game.print( { "", {"mi-text.name"}, {"mi-error.distance_not_valid", distance} }, Constants.COLOR.ERROR )
+    return false
+  end
+  return true
+end
+
+-- -----------------------------------------------------------------------------
+
 function Validators.validateMessage( message )
   if type( message ) ~= "string" then message = "" end
   if message == "" then

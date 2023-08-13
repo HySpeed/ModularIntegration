@@ -31,7 +31,38 @@ local Constants = {
   ENEMY     = "enemy",
   ACTION    = "action",
   ERROR     = "error",
-  RESULT    = "result"
+  RESULT    = "result",
+
+  TURRETS = {
+    TYPE = {
+      ["gun-turret"] = "gun-turret",
+      ["flamethrower-turret"] = "flamethrower-turret",
+      -- ["laser-turret"] = "laser-turret",
+      ["artillery-turret"] = "artillery-turret"
+    },
+    AMMO = {
+      ["firearm-magazine"] = "firearm-magazine",
+      ["piercing-rounds-magazine"] = "piercing-rounds-magazine",
+      ["uranium-rounds-magazine"] = "uranium-rounds-magazine"
+    }
+  },
+
+  DISTANCE = {
+    ["close"]   = "close",
+    ["near"]    = "near",
+    ["medium"]  = "medium",
+    ["distant"] = "distant",
+    ["far"]     = "far"
+  },
+
+  DISTANCES = {
+    ["close"]   = 5,
+    ["near"]    = 10,
+    ["medium"]  = 20,
+    ["distant"] = 40,
+    ["far"]     = 80
+  }
+
 }
 
 return Constants

@@ -125,6 +125,40 @@ function Utils.skipIntro()
   end
 end
 
+-- -----------------------------------------------------------------------------
+
+--- Gets a map position for an angled distance from a position.
+---@param startingPos MapPosition
+---@param distance double
+---@param angle double
+---@return MapPosition
+function Utils.GetPositionForAngledDistance( startingPos, distance, angle )
+  if angle < 0 then
+      angle = 360 + angle
+  end
+  local angleRad = math.rad( angle )
+  local newPos = {
+      x = (distance *  math.sin( angleRad )) + startingPos.x,
+      y = (distance * -math.cos( angleRad )) + startingPos.y
+  }
+  return newPos
+end
+
+-- -----------------------------------------------------------------------------
+
+--- Get a random location within a radius (circle) of a target.
+---@param centerPos MapPosition
+---@param maxRadius double
+---@param minRadius? double|nil # Defaults to 0.
+---@return MapPosition
+function Utils.RandomLocationInRadius( centerPos, maxRadius, minRadius )
+  local angle = math.random( 0, 360 )
+  minRadius = minRadius or 0
+  local radiusMultiplier = maxRadius - minRadius
+  local distance = minRadius + ( math.random() * radiusMultiplier )
+  return Utils.GetPositionForAngledDistance( centerPos, distance, angle )
+end
+
 -- =============================================================================
 
 return Utils

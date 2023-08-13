@@ -33,6 +33,13 @@ data:extend {
     order         = "mi-fi"
   },
   {
+    name          = "mi_spawn_turret",
+    setting_type  = "runtime-global",
+    type          = "bool-setting",
+    default_value = true,
+    order         = "mi-st"
+  },
+  {
     name          = "mi_teleport_distance",
     setting_type  = "runtime-global",
     type          = "bool-setting",
