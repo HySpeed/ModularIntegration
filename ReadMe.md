@@ -87,6 +87,41 @@ Options for evict from vehicle, delay before event.
 > `remote.call( "modular_integration", "teleport_distance", "hyspeed", 0, 50, true )`
 
 ---
+
+### **spawn_turret**
+
+Spawn Enemy turrets around the player.  Specify quantity, turret type, ammo, and distance.
+Option for delay before event.
+
+#### Checks / Limits
+
+- The spawned turrets will not destroy existing structures when created.  They will not attack non-military buildings.
+
+#### Parameters
+
+- **player**     : The **name** of the player.
+- **delay**      : The time in seconds to delay this action.
+- **quantity**   : The number of turrets to create.
+- **turret_type**: They type of turret.  One of 'gun-turret', ~~'laser-turret'~~, 'flamethrower-turret', 'artillery-turret'.
+- **ammo_type**  : The ammunition type to load into the turret.  Only used for 'gun turret.  One of 'firearm-magazine', 'piercing-rounds-magazine', 'uranium-rounds-magazine'.
+- **distance**   : The number of tiles from the player.  The turrets are placed randomly in rough circle around the player. One of 'close' (5 tiles), 'near' (10 tiles), 'medium' (20 tiles), 'distant' (40 tiles), 'far' (80 tiles).
+
+
+#### Examples
+
+- Spawn 4 Gun Turret with Yellow near the player with no delay:
+
+> `remote.call( "mi", "spawn_turret", "hyspeed", 0, 4, "gun-turret", "firearm-magazine", "near" )`
+
+- Spawn 6 Flamethrower Turrets medium distance with no delay:
+
+> `remote.call( "mi", "spawn_turret", "hyspeed", 0, 6, "flamethrower-turret", nil, "medium" )`
+
+- Spawn 2 Artillery Turrets far from the player with no delay:
+
+> `remote.call( "mi", "spawn_turret", "hyspeed", 0, 2, "artillery-turret", nil, "far" )`
+
+---
 ---
 
 ### **_template_**

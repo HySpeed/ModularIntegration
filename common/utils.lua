@@ -45,7 +45,7 @@ function Utils.isInVehicle( task, fail_message )
   end
 
   if player.vehicle ~= nil then
-    game.print( { "", {"xti-text.name"}, fail_message, task.player.name } )
+    game.print( { "", {"mi-text.name"}, fail_message, task.player.name } )
     Utils.showTextOnPlayer( task.player, fail_message, Constants.OFFSET.BELOW, Constants.COLOR.ERROR )
     return true
   end
@@ -123,6 +123,40 @@ function Utils.skipIntro()
     remote.call( "freeplay", "set_disable_crashsite", true ) -- removes crashsite and cutscene start
     remote.call( "freeplay", "set_skip_intro", true )        -- Skips popup message to press tab to start playing
   end
+end
+
+-- -----------------------------------------------------------------------------
+
+--- Gets a map position for an angled distance from a position.
+---@param startingPos MapPosition
+---@param distance double
+---@param angle double
+---@return MapPosition
+function Utils.GetPositionForAngledDistance( startingPos, distance, angle )
+  if angle < 0 then
+      angle = 360 + angle
+  end
+  local angleRad = math.rad( angle )
+  local newPos = {
+      x = (distance *  math.sin( angleRad )) + startingPos.x,
+      y = (distance * -math.cos( angleRad )) + startingPos.y
+  }
+  return newPos
+end
+
+-- -----------------------------------------------------------------------------
+
+--- Get a random location within a radius (circle) of a target.
+---@param centerPos MapPosition
+---@param maxRadius double
+---@param minRadius? double|nil # Defaults to 0.
+---@return MapPosition
+function Utils.RandomLocationInRadius( centerPos, maxRadius, minRadius )
+  local angle = math.random( 0, 360 )
+  minRadius = minRadius or 0
+  local radiusMultiplier = maxRadius - minRadius
+  local distance = minRadius + ( math.random() * radiusMultiplier )
+  return Utils.GetPositionForAngledDistance( centerPos, distance, angle )
 end
 
 -- =============================================================================

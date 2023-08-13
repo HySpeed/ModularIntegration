@@ -9,6 +9,7 @@ local on_tick_n = require( "__flib__.on-tick-n" )
 
 local DumpInventory          = require( "modules.dump_inventory" )
 local FillInventory          = require( "modules.fill_inventory" )
+local SpawnTurret            = require( "modules.spawn_turret"   )
 local TeleportDistance       = require( "modules.teleport_distance" )
 
 
@@ -17,6 +18,7 @@ local TeleportDistance       = require( "modules.teleport_distance" )
 local taskFunctions = {
   dump_inventory    = DumpInventory.choose,
   fill_inventory    = FillInventory.choose,
+  spawn_turret      = SpawnTurret.choose,
   teleport_distance = TeleportDistance.choose
 }
 
@@ -37,6 +39,7 @@ local function onLoad()
   remote.add_interface( "modular_integration", {
     dump_inventory=DumpInventory.start,
     fill_inventory=FillInventory.start,
+    spawn_turret=SpawnTurret.start,
     teleport_distance=TeleportDistance.start
   } )
 end
